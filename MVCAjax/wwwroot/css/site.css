@@ -1,0 +1,90 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.heart-unlike {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: none;
+  transform: rotate(315deg);
+  position: absolute;
+  background-color: gray;
+  right:10px;
+}
+
+  .heart-unlike::before,
+  .heart-unlike::after {
+    content: '';
+    position: absolute;
+  }
+
+  .heart-unlike::before {
+    width: 20px;
+    height: 20px;
+    background-color: gray;
+    border-radius: 50%;
+    top: -10px;
+    left: 0;
+  }
+
+  .heart-unlike::after {
+    width: 20px;
+    height: 20px;
+    background-color: gray;
+    border-radius: 50%;
+    top: 0;
+    left: 10px;
+    cursor:pointer;
+  }
+
+
+.heart-like {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  transform: rotate(315deg);
+  position: absolute;
+  cursor: pointer;
+  right:10px;
+}
+
+  .heart-like::before,
+  .heart-like::after {
+    content: '';
+    position: absolute;
+  }
+
+  .heart-like::before {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    top: -10px;
+    left: 0;
+  }
+
+  .heart-like::after {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    top: 0;
+    left: 10px;
+  }
