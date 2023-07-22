@@ -17,8 +17,18 @@ namespace MVCAjax.Controllers
 
     public IActionResult Index()
     {
-      var db = new AppDbContext();
+      var db = new MsSqlDbContext();
       var plist = db.Products.OrderBy(x=> x.Name).ToList();
+
+      var db2 = new MySqlDbContext();
+      var plist2 = db2.Products.OrderBy(x => x.Name).ToList();
+
+      var db3 = new PostgreSqlDbContext();
+      var plist3 = db2.Products.OrderBy(x => x.Name).ToList();
+
+
+      plist.AddRange(plist2);
+      plist.AddRange(plist3);
 
       return View(plist);
     }
@@ -29,7 +39,7 @@ namespace MVCAjax.Controllers
       
       try
       {
-        var db = new AppDbContext();
+        var db = new MsSqlDbContext();
         var p = db.Products.Find(id);
         p.Liked = !p.Liked; // true ise false, false ise true yap, ilk basışta likela sonra unlike yap.
         db.SaveChanges(); // veri tabanına kaydet.

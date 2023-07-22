@@ -2,9 +2,9 @@
 
 #nullable disable
 
-namespace MVCAjax.Migrations
+namespace MVCAjax.Migrations.PostgreSql
 {
-    public partial class Product : Migration
+    public partial class PostgreSqlMig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,11 +12,12 @@ namespace MVCAjax.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Id = table.Column<string>(type: "text", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Price = table.Column<decimal>(type: "numeric", nullable: false),
                     Stock = table.Column<short>(type: "smallint", nullable: false),
-                    Liked = table.Column<bool>(type: "bit", nullable: false)
+                    Liked = table.Column<bool>(type: "boolean", nullable: false),
+                    PhotoUrl = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {

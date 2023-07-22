@@ -2,7 +2,7 @@
 
 namespace MVCAjax.Data
 {
-  public class AppDbContext:DbContext
+  public class MsSqlDbContext:DbContext
   {
 
     public DbSet<Product> Products { get; set; }
@@ -11,6 +11,8 @@ namespace MVCAjax.Data
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
       optionsBuilder.UseSqlServer("Server=(localDB)\\MyLocalDb;Database=ETicaretDB;Trusted_Connection=True;");
+    
+
 
     }
 

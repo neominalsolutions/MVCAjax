@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace MVCAjax.Migrations
+namespace MVCAjax.Migrations.MsSql
 {
-    [DbContext(typeof(AppDbContext))]
-    [Migration("20230716071345_Product")]
-    partial class Product
+    [DbContext(typeof(MsSqlDbContext))]
+    [Migration("20230722093554_MsSqlMig")]
+    partial class MsSqlMig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,6 +33,9 @@ namespace MVCAjax.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhotoUrl")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")

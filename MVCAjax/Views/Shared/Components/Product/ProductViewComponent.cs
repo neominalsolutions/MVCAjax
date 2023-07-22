@@ -10,7 +10,7 @@ namespace MVCAjax.Views.Shared.Components.Product
     public IViewComponentResult Invoke(bool? liked = null)
     {
 
-      var db = new AppDbContext();
+      var db = new MsSqlDbContext();
 
       if(liked == null)
       {
