@@ -1,4 +1,14 @@
+using MVCAjax.Data;
+using MVCAjax.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// ilgili repository sýnýfýn hangi altyapýdan çalýþacaðýný burada sisteme tanýtýyoruz.
+builder.Services.AddScoped<IProductRepository, ProductPostgreSqlRepository>();
+builder.Services.AddDbContext<MySqlDbContext>();
+builder.Services.AddDbContext<MsSqlDbContext>();
+builder.Services.AddDbContext<PostgreSqlDbContext>();
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
